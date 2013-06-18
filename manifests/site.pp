@@ -68,13 +68,20 @@ node default {
   include nodejs::v0_6
   include nodejs::v0_8
   include nodejs::v0_10
+  class { 'nodejs::global':
+    version => 'v0.10.5'
+  }
 
   # default ruby versions
   include ruby::1_8_7
   include ruby::1_9_2
   include ruby::1_9_3
   include ruby::2_0_0
+  class { 'ruby::global':
+    version => '1.8.7-p358'
+  }
 
+  # desktop applications
   include adium
   include chrome
   include cyberduck
@@ -95,6 +102,10 @@ node default {
     source => 'sergeche/emmet-sublime'
   }
 
+  sublime_text_2::package { 'Package Control':
+    source => 'wbond/sublime_package_control'
+  }
+
   # common, useful packages
   package {
     [
@@ -109,26 +120,10 @@ node default {
     ]:
   }
 
-  ruby::gem { 'compass':
-    gem     => 'compass',
-    ruby    => '1.8.7',
-    version => '>= 0'
-  }
-
-  ruby::gem { 'zurb-foundation':
-    gem     => 'zurb-foundation',
-    ruby    => '1.8.7',
-    version => '>= 0'
-  }
-
-  ruby::gem { 'modular-scale':
-    gem     => 'modular-scale',
-    ruby    => '1.8.7',
-    version => '>= 0'
-  }
-
   file { "${boxen::config::srcdir}/our-boxen":
     ensure => link,
     target => $boxen::config::repodir
   }
+
+  include projects::all
 }
