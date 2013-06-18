@@ -5,7 +5,11 @@ class people::jzsfkzm {
   include vlc
 
   file { "$home/.gitconfig":
-    source => "puppet:///modules/people/manifests/jzsfkzm/files/.gitconfig"
+    source => "$boxen::config::repodir/modules/people/manifests/jzsfkzm/files/.gitconfig"
+  }
+
+  file { "$home/.bash_profile":
+    source => "$boxen::config::repodir/modules/people/manifests/jzsfkzm/files/.bash_profile"
   }
 
   file { "$home/bin":

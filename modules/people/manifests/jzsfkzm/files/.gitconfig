@@ -1,6 +1,7 @@
 [user]
 	name = Jozsef Kozma
 	email = joco@gawker.com
+
 [alias]
 	fb = diff -b
 	co = checkout
