@@ -11,4 +11,8 @@ class people::jzsfkzm {
     mode => 775
   }
 
+  file { "$home/.gitconfig":
+    source => "puppet:///modules/people/mainfests/jzsfkzm/files/.gitconfig"
+  }
+
 }
