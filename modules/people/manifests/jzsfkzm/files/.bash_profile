@@ -14,6 +14,8 @@ fi
 source ~/bin/git-prompt
 source /opt/boxen/env.sh
 
+export PATH="$PATH:~/bin"
+
 # Ez akkor bebikazza az agentet
 SSH_ENV="$HOME/.ssh/environment"
 
