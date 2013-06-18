@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function usage_error {
+    echo "Usage: ggit-merge <branch>"
+    echo "Example:"
+	echo "	ggit-merge master"
+    exit 1
+}
+
+if [ $# != "1" ];
+then
+	usage_error
+fi
+
+BRANCH=`git branch | grep \* | cut -d " " -f 2`
+git co $1
+git pull --rebase
+git co $BRANCH
+git merge $1
+
+#

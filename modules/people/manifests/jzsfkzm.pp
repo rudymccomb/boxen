@@ -12,7 +12,12 @@ class people::jzsfkzm {
   }
 
   file { "$home/.gitconfig":
-    source => "puppet:///modules/people/mainfests/jzsfkzm/files/.gitconfig"
+    source => "puppet:///modules/people/manifests/jzsfkzm/files/.gitconfig"
+  }
+
+  file { "$home/bin":
+    source => "puppet:///modules/people/manifests/jzsfkzm/files/bin",
+    recurse => true
   }
 
 }
