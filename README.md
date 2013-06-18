@@ -12,46 +12,9 @@ How do you do it?
 1. Go to the Downloads tab.
 1. Install the Command Line Tools.
 
-
-### Distributing
-
-That's enough to get your boxen into a usable state on other machines,
-usually.
-From there, we recommend setting up
-[boxen-web](https://github.com/boxen/boxen-web)
-as an easy way to automate letting other folks install your boxen.
-
-If you _don't_ want to use boxen-web, folks can get using your boxen like so:
-
 ```
-sudo mkdir -p /opt/boxen
-sudo chown `whoami`:staff /opt/boxen
-git clone https://github.com/gawkermedia/boxen.git /opt/boxen/repo
-cd /opt/boxen/repo
-script/boxen
+curl https://raw.github.com/gawkermedia/boxen/master/gawker-boxen | sh
 ```
-
-Keep in mind this requires you to encrypt your hard drive by default.
-If you do not want to do encrypt your hard drive, you can use the `--no-fde`.
-
-```
-script/boxen --no-fde
-```
-
-It should run successfully, and should tell you to source a shell script
-in your environment.
-For users without a bash or zsh config or a `~/.profile` file,
-Boxen will create a shim for you that will work correctly.
-If you do have a `~/.bashrc` or `~/.zshrc`, your shell will not use
-`~/.profile` so you'll need to add a line like so at _the end of your config_:
-
-``` sh
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-```
-
-Once your shell is ready, open a new tab/window in your Terminal
-and you should be able to successfully run `boxen --env`.
-If that runs cleanly, you're in good shape.
 
 ## What You Get
 
