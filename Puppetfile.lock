@@ -1,12 +1,42 @@
 GITHUBTARBALL
+  remote: boxen/puppet-adium
+  specs:
+    adium (1.1.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (2.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-chrome
+  specs:
+    chrome (1.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-cyberduck
+  specs:
+    cyberduck (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-daisy_disk
+  specs:
+    daisy_disk (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
     dnsmasq (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-firefox
+  specs:
+    firefox (1.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-gcc
@@ -19,6 +49,16 @@ GITHUBTARBALL
     git (1.2.2)
 
 GITHUBTARBALL
+  remote: boxen/puppet-googledrive
+  specs:
+    googledrive (1.0.2)
+
+GITHUBTARBALL
+  remote: boxen/puppet-hipchat
+  specs:
+    hipchat (1.0.5)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.1.2)
@@ -27,6 +67,16 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-iterm2
+  specs:
+    iterm2 (1.0.2)
+
+GITHUBTARBALL
+  remote: boxen/puppet-jumpcut
+  specs:
+    jumpcut (1.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -39,6 +89,11 @@ GITHUBTARBALL
     nodejs (2.2.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-onepassword
+  specs:
+    onepassword (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-repository
   specs:
     repository (2.0.2)
@@ -49,9 +104,39 @@ GITHUBTARBALL
     ruby (4.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-skype
+  specs:
+    skype (1.0.2)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sublime_text_2
+  specs:
+    sublime_text_2 (1.1.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-textmate
+  specs:
+    textmate (1.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-tower
+  specs:
+    tower (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-virtualbox
+  specs:
+    virtualbox (1.0.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-vlc
+  specs:
+    vlc (1.0.1)
 
 GITHUBTARBALL
   remote: cprice-puppet/puppetlabs-inifile
@@ -64,17 +149,34 @@ GITHUBTARBALL
     stdlib (4.0.2)
 
 DEPENDENCIES
+  adium (= 1.1.1)
   boxen (= 2.1.0)
+  chrome (= 1.1.0)
+  cyberduck (= 1.0.0)
+  daisy_disk (= 1.0.0)
   dnsmasq (= 1.0.0)
+  dropbox (= 1.1.0)
+  firefox (= 1.1.0)
   gcc (= 1.0.0)
   git (= 1.2.2)
+  googledrive (= 1.0.2)
+  hipchat (= 1.0.5)
   homebrew (= 1.1.2)
   hub (= 1.0.0)
   inifile (= 0.9.0)
+  iterm2 (= 1.0.2)
+  jumpcut (= 1.0.0)
   nginx (= 1.4.0)
   nodejs (= 2.2.0)
+  onepassword (= 1.0.1)
   repository (= 2.0.2)
   ruby (= 4.1.0)
+  skype (= 1.0.2)
   stdlib (= 4.0.2)
+  sublime_text_2 (= 1.1.1)
   sudo (= 1.0.0)
+  textmate (= 1.1.0)
+  tower (= 1.0.0)
+  virtualbox (= 1.0.3)
+  vlc (= 1.0.1)
 

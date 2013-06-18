@@ -33,3 +33,21 @@ github "sudo",       "1.0.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+
+github "adium", "1.1.1"
+github "chrome", "1.1.0"
+github "cyberduck", "1.0.0"
+github "daisy_disk", "1.0.0"
+github "dropbox", "1.1.0"
+github "firefox", "1.1.0"
+github "googledrive", "1.0.2"
+github "hipchat", "1.0.5"
+github "iterm2", "1.0.2"
+github "jumpcut", "1.0.0"
+github "onepassword", "1.0.1"
+github "skype", "1.0.2"
+github "sublime_text_2", "1.1.1"
+github "textmate", "1.1.0"
+github "tower", "1.0.0"
+github "virtualbox", "1.0.3"
+github "vlc", "1.0.1"

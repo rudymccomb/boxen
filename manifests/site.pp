@@ -75,12 +75,35 @@ node default {
   include ruby::1_9_3
   include ruby::2_0_0
 
+  include adium
+  include chrome
+  include cyberduck
+  include dropbox
+  include firefox
+  include googledrive
+  include hipchat
+  include iterm2::stable
+  include jumpcut
+  include onepassword
+  include skype
+  include sublime_text_2
+  include textmate
+  include tower
+  include virtualbox
+
+  sublime_text_2::package { 'Emmet':
+    source => 'sergeche/emmet-sublime'
+  }
+
   # common, useful packages
   package {
     [
       'ack',
       'findutils',
-      'gnu-tar'
+      'gnu-tar',
+      'mc',
+      'dos2unix',
+      'wget'
     ]:
   }
 
