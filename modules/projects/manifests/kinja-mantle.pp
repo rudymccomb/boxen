@@ -9,6 +9,12 @@ class projects::kinja-mantle {
   repository {
     '/var/www/kinja-mantle':
       source => 'gawkermedia/kinja-mantle',
-      provider => 'git';
+      require => File['/var/www']
+  }
+
+  repository {
+    '/var/www/kinja-common':
+      source => 'gawkermedia/kinja-common',
+      require => File['/var/www']
   }
 }
