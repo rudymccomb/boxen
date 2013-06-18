@@ -1,5 +1,5 @@
 class people::jzsfkzm {
-  $home     = "/Users/joco"
+  $home = "/Users/${::luser}"
 
   include daisy_disk
   include vlc
