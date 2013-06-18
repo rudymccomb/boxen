@@ -103,8 +103,28 @@ node default {
       'gnu-tar',
       'mc',
       'dos2unix',
-      'wget'
+      'wget',
+      'curl',
+      'play'
     ]:
+  }
+
+  ruby::gem { 'compass':
+    gem     => 'compass',
+    ruby    => '1.8.7',
+    version => '>= 0'
+  }
+
+  ruby::gem { 'zurb-foundation':
+    gem     => 'zurb-foundation',
+    ruby    => '1.8.7',
+    version => '>= 0'
+  }
+
+  ruby::gem { 'modular-scale':
+    gem     => 'modular-scale',
+    ruby    => '1.8.7',
+    version => '>= 0'
   }
 
   file { "${boxen::config::srcdir}/our-boxen":
