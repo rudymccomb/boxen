@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /www/vagrant-boxes/devbox
+git pull
+vagrant up
+vssh

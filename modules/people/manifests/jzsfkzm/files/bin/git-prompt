@@ -1,0 +1,134 @@
+#!/bin/bash
+
+# Colors
+# ######
+ESC="\033"
+DULL=0
+BRIGHT=1
+NORMAL_COLOR="\[$ESC[m\]"
+
+##
+# Shortcuts for Colored Text ( Bright and FG Only )
+##
+# DULL TEXT
+BLACK="\[$ESC[${DULL};30m\]"
+RED="\[$ESC[${DULL};31m\]"
+GREEN="\[$ESC[${DULL};32m\]"
+YELLOW="\[$ESC[${DULL};33m\]"
+BLUE="\[$ESC[${DULL};34m\]"
+VIOLET="\[$ESC[${DULL};35m\]"
+CYAN="\[$ESC[${DULL};36m\]"
+WHITE="\[$ESC[${DULL};37m\]"
+
+# BRIGHT TEXT
+BRIGHT_BLACK="\[$ESC[${BRIGHT};30m\]"
+BRIGHT_RED="\[$ESC[${BRIGHT};31m\]"
+BRIGHT_GREEN="\[$ESC[${BRIGHT};32m\]"
+BRIGHT_YELLOW="\[$ESC[${BRIGHT};33m\]"
+BRIGHT_BLUE="\[$ESC[${BRIGHT};34m\]"
+BRIGHT_VIOLET="\[$ESC[${BRIGHT};35m\]"
+BRIGHT_CYAN="\[$ESC[${BRIGHT};36m\]"
+BRIGHT_WHITE="\[$ESC[${BRIGHT};37m\]"
+
+# Colorized Git branch and status
+# ###############################
+function parse_git_branch {
+	git_dir=`git rev-parse --git-dir 2> /dev/null`
+	[[ -n ${git_dir/./} ]] || return 1
+
+	file_regex='\([^/ ]*\/\{0,1\}.*\).*'
+	eval "$(
+		git status 2>/dev/null |
+			sed -n '
+				s/^# On branch /branch=/p
+				s/^nothing to commit.*/clean=clean/p
+
+				s/^# Your branch is ahead of .* by \(.*\) commit.*/difference=\" [+\1]\"/p
+				s/^# Your branch is behind .* by \(.*\) commit.*/difference=\" [-\1]\"/p
+				s/^# and have \(.*\) and \(.*\) different commit.*/difference=\" [+\1\/-\2]\"/p
+
+				/^# Changes to be committed:/,/^# [A-Z]/ {
+					s/^# Changes to be committed:/added=added;/p
+
+					s/^#	modified:   '"$file_regex"'/	[[ \" ${added_files[*]} \" =~ \" \1 \" ]] || added_files[${#added_files[@]}]=\"\1\"/p
+					s/^#	new file:   '"$file_regex"'/	[[ \" ${added_files[*]} \" =~ \" \1 \" ]] || added_files[${#added_files[@]}]=\"\1\"/p
+					s/^#	renamed:[^>]*> '"$file_regex"'/	[[ \" ${added_files[*]} \" =~ \" \1 \" ]] || added_files[${#added_files[@]}]=\"\1\"/p
+					s/^#	copied:[^>]*> '"$file_regex"'/ 	[[ \" ${added_files[*]} \" =~ \" \1 \" ]] || added_files[${#added_files[@]}]=\"\1\"/p
+				}
+
+				/^# Changed but not updated:/,/^# [A-Z]/ {
+					s/^# Changed but not updated:/modified=modified;/p
+					s/^#	modified:   '"$file_regex"'/	[[ \" ${modified_files[*]} \" =~ \" \1 \" ]] || modified_files[${#modified_files[@]}]=\"\1\"/p
+					s/^#	unmerged:   '"$file_regex"'/	[[ \" ${modified_files[*]} \" =~ \" \1 \" ]] || modified_files[${#modified_files[@]}]=\"\1\"/p
+				}
+
+				/^# Changes not staged for commit:/,/^# [A-Z]/ {
+					s/^# Changes not staged for commit:/modified=modified;/p
+					s/^#	deleted:   '"$file_regex"'/	[[ \" ${modified_files[*]} \" =~ \" \1 \" ]] || modified_files[${#modified_files[@]}]=\"\1\"/p
+					s/^#	modified:   '"$file_regex"'/	[[ \" ${modified_files[*]} \" =~ \" \1 \" ]] || modified_files[${#modified_files[@]}]=\"\1\"/p
+					s/^#	unmerged:   '"$file_regex"'/	[[ \" ${modified_files[*]} \" =~ \" \1 \" ]] || modified_files[${#modified_files[@]}]=\"\1\"/p
+				}
+
+				/^# Unmerged paths:/,/^[^#]/ {
+					s/^# Unmerged paths:/modified=modified;/p
+					s/^#	both modified:\s*'"$file_regex"'/	[[ \" ${modified_files[*]} \" =~ \" \1 \" ]] || modified_files[${#modified_files[@]}]=\"\1\"/p
+				}
+
+				/^# Untracked files:/,/^[^#]/{
+					s/^# Untracked files:/untracked=untracked;/p
+					s/^#	'"$file_regex"'/		[[ \" ${untracked_files[*]} ${modified_files[*]} ${added_files[*]} \" =~ \" \1 \" ]] || untracked_files[${#untracked_files[@]}]=\"\1\"/p
+				}
+			'
+	)"
+
+	stash=`git stash list | wc -l | sed 's/ //g' 2>/dev/null`
+	if [[ $stash > 0 ]]; then
+		stash="${BRIGHT_BLUE}[${BRIGHT_CYAN}${stash}${BRIGHT_BLUE}] "
+	else
+		stash=""
+	fi
+
+	if [[ $clean == "clean" ]]; then
+		state="${BRIGHT_GREEN}C"
+	else
+		if [[ ${#untracked_files[@]} == 0 ]];then
+			untracked="${BRIGHT_WHITE}0${NORMAL_COLOR}"
+		else
+			untracked="${BRIGHT_RED}${#untracked_files[@]}${NORMAL_COLOR}"
+		fi
+
+		if [[ ${#modified_files[@]} == 0 ]];then
+			modified="${BRIGHT_WHITE}0${NORMAL_COLOR}"
+		else
+			modified="${BRIGHT_RED}${#modified_files[@]}${NORMAL_COLOR}"
+		fi
+
+		if [[ ${#added_files[@]} == 0 ]];then
+			added="${BRIGHT_WHITE}0${NORMAL_COLOR}"
+		else
+			added="${BRIGHT_RED}${#added_files[@]}${NORMAL_COLOR}"
+		fi
+
+		state="${untracked}:${modified}:${added}"
+	fi
+
+	echo " ${BRIGHT_BLUE}(${BRIGHT_CYAN}${branch}${BRIGHT_BLUE})${BRIGHT_YELLOW}${difference}${NORMAL_COLOR} ${stash}${state}"
+}
+
+# PROMPT
+# ######
+function prompt_func() {
+	previous_return_value=$?;
+	# prompt="${TITLEBAR}$BLUE[$RED\w$GREEN$(__git_ps1)$YELLOW$(git_dirty_flag)$BLUE]$COLOR_NONE "
+	#prompt="${TITLEBAR}${BLUE}[${RED}\w${GREEN}$(parse_git_branch)${BLUE}]${COLOR_NONE} "
+
+	prompt="${BRIGHT_BLUE}[${CYAN}\u@\h${WHITE}:${BRIGHT_GREEN}\w${BRIGHT_BLUE}]$(parse_git_branch) \n${NORMAL_COLOR}"
+	if test $previous_return_value -eq 0
+	then
+		PS1="${prompt}\$ "
+	else
+		PS1="${prompt}${RED}\$${NORMAL_COLOR} "
+	fi
+}
+
+PROMPT_COMMAND=prompt_func

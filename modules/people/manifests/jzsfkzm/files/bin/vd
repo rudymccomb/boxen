@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /www/vagrant-boxes/devbox
+vagrant halt
