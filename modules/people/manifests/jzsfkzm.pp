@@ -12,6 +12,10 @@ class people::jzsfkzm {
     source => "$boxen::config::repodir/modules/people/manifests/jzsfkzm/files/.bash_profile"
   }
 
+  file { "$home/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings":
+    source => "$boxen::config::repodir/modules/people/manifests/jzsfkzm/files/Preferences.sublime-settings"
+  }
+
   file { "$home/bin":
     ensure => 'directory',
     owner => $luser,
