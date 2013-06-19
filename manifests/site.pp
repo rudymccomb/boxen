@@ -106,6 +106,14 @@ node default {
     source => 'wbond/sublime_package_control'
   }
 
+  sublime_text_2::package { 'JSLint':
+    source => 'darrenderidder/Sublime-JSLint'
+  }
+
+  file { "/Users/$luser/Library/Application Support/Sublime Text 2/Packages/User/JSLint.sublime-build":
+    source => "$boxen::config::repodir/modules/projects/files/JSLint.sublime-build"
+  }
+
   # common, useful packages
   package {
     [

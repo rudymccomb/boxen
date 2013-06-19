@@ -41,4 +41,8 @@ class projects::kinja {
     ruby    => '1.8.7',
     version => '>= 0'
   }
+
+  nodejs::module { 'jslint':
+    node_version => 'v0.10.5'
+  }
 }
