@@ -25,4 +25,5 @@ class people::jzsfkzm {
     recurse => true
   }
 
+  include people::jzsfkzm::preferences
 }
