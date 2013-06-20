@@ -6,6 +6,11 @@ class projects::kinja {
     mode => 775
   }
 
+  file { "/www":
+    ensure => link,
+    target => "/var/www"
+  }
+
   repository {
     '/var/www/kinja-mantle':
       source => 'gawkermedia/kinja-mantle',
