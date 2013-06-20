@@ -97,6 +97,7 @@ node default {
   include textmate
   include tower
   include virtualbox
+  include viscosity
 
   sublime_text_2::package { 'Emmet':
     source => 'sergeche/emmet-sublime'
