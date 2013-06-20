@@ -111,6 +111,14 @@ node default {
     source => 'darrenderidder/Sublime-JSLint'
   }
 
+  sublime_text_2::package { 'DocBlockr':
+    source => 'spadgos/sublime-jsdocs'
+  }
+
+  sublime_text_2::package { 'SoyTemplate':
+    source => 'anvie/SoyTemplate'
+  }
+
   file { "/Users/$luser/Library/Application Support/Sublime Text 2/Packages/User/JSLint.sublime-build":
     source => "$boxen::config::repodir/modules/projects/files/JSLint.sublime-build"
   }
