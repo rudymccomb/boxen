@@ -91,6 +91,7 @@ node default {
   include hipchat
   include iterm2::stable
   include jumpcut
+  include mysql
   include onepassword
   include skype
   include sublime_text_2
