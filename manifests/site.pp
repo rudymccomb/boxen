@@ -124,7 +124,7 @@ node default {
     source => "$boxen::config::repodir/modules/projects/files/JSLint.sublime-build"
   }
 
-  # common, useful packages
+  # common, useful packages, default from brew
   package {
     [
       'ack',
@@ -134,7 +134,8 @@ node default {
       'dos2unix',
       'wget',
       'curl',
-      'play'
+      'play',
+      'sbt'
     ]:
   }
 
