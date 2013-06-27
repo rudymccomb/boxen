@@ -136,7 +136,8 @@ node default {
       'wget',
       'curl',
       'play',
-      'sbt'
+      'sbt',
+      'scala'
     ]:
   }
 
@@ -145,5 +146,18 @@ node default {
     target => $boxen::config::repodir
   }
 
-  include projects::all
+  file { '/var/www':
+    ensure => 'directory',
+    owner => $luser,
+    group => 'staff',
+    mode => 775
+  }
+
+  file { "/www":
+    ensure => link,
+    target => "/var/www"
+  }
+
+  include projects::kinja
+  include projects::hyperion
 }
