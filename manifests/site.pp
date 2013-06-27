@@ -56,6 +56,7 @@ node default {
   include dnsmasq
   include git
   include hub
+  include mysql
   include nginx
 
   # fail if FDE is not enabled
@@ -91,7 +92,6 @@ node default {
   include hipchat
   include iterm2::stable
   include jumpcut
-  include mysql
   include onepassword
   include skype
   include sublime_text_2
