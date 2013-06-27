@@ -97,6 +97,7 @@ node default {
   include sublime_text_2
   include textmate
   include tower
+  include transmission
   include virtualbox
   include viscosity
 
