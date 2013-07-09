@@ -129,15 +129,16 @@ node default {
   package {
     [
       'ack',
+      'curl',
+      'dos2unix',
       'findutils',
       'gnu-tar',
+      'htop',
       'mc',
-      'dos2unix',
-      'wget',
-      'curl',
       'play',
       'sbt',
-      'scala'
+      'scala',
+      'wget'
     ]:
   }
 
