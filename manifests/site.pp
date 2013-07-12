@@ -138,7 +138,8 @@ node default {
       'play',
       'sbt',
       'scala',
-      'wget'
+      'wget',
+      'pkg-config'
     ]:
   }
 
