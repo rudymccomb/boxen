@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 sudo mkdir -p /opt/boxen
 sudo chown `logname`:staff /opt/boxen
