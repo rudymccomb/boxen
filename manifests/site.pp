@@ -135,9 +135,6 @@ node default {
       'gnu-tar',
       'htop',
       'mc',
-      'play',
-      'sbt',
-      'scala',
       'wget',
       'pkg-config'
     ]:

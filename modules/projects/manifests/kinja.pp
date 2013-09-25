@@ -1,4 +1,21 @@
 class projects::kinja {
+
+  # set up Play! 2.1.5
+  exec { 'downgrade_play':
+    command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git checkout 39ef434 play.rb'
+  }
+
+  package {'play':
+    require => Exec['downgrade_play']
+  }
+
+  package {
+    [
+      'sbt',
+      'scala'
+    ]:
+  }
+
   repository {
     '/var/www/kinja-mantle':
       source => 'gawkermedia/kinja-mantle',
