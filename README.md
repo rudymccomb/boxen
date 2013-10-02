@@ -13,7 +13,7 @@ How do you do it?
 1. Install the Command Line Tools.
 
 ```
-curl https://raw.github.com/gawkermedia/boxen/master/gawker-boxen | sh
+curl -s https://raw.github.com/gawkermedia/boxen/master/gawker-boxen > /tmp/boxen; bash /tmp/boxen
 ```
 
 ## What You Get
