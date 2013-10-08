@@ -51,7 +51,7 @@ Service {
 
 Homebrew::Formula <| |> -> Package <| |>
 
-node default {
+node 'default' {
   # core modules, needed for most things
   include dnsmasq
   include git
@@ -81,6 +81,44 @@ node default {
     version => '1.8.7-p358'
   }
 
+  # common, useful packages, default from brew
+  package {
+    [
+      'ack',
+      'curl',
+      'dos2unix',
+      'findutils',
+      'gnu-tar',
+      'htop',
+      'mc',
+      'wget',
+      'pkg-config'
+    ]:
+  }
+
+  file { "${boxen::config::srcdir}/our-boxen":
+    ensure => link,
+    target => $boxen::config::repodir
+  }
+
+  file { '/var/www':
+    ensure => 'directory',
+    owner => $luser,
+    group => 'staff',
+    mode => 775
+  }
+
+  file { "/www":
+    ensure => link,
+    target => "/var/www"
+  }
+
+  include projects::kinja
+  include projects::kinja-ops
+  include projects::hyperion
+}
+
+node 'developer' inherits 'default' {
   # desktop applications
   include adium
   include chrome
@@ -123,40 +161,4 @@ node default {
   file { "/Users/$luser/Library/Application Support/Sublime Text 2/Packages/User/JSLint.sublime-build":
     source => "$boxen::config::repodir/modules/projects/files/JSLint.sublime-build"
   }
-
-  # common, useful packages, default from brew
-  package {
-    [
-      'ack',
-      'curl',
-      'dos2unix',
-      'findutils',
-      'gnu-tar',
-      'htop',
-      'mc',
-      'wget',
-      'pkg-config'
-    ]:
-  }
-
-  file { "${boxen::config::srcdir}/our-boxen":
-    ensure => link,
-    target => $boxen::config::repodir
-  }
-
-  file { '/var/www':
-    ensure => 'directory',
-    owner => $luser,
-    group => 'staff',
-    mode => 775
-  }
-
-  file { "/www":
-    ensure => link,
-    target => "/var/www"
-  }
-
-  include projects::kinja
-  include projects::kinja-ops
-  include projects::hyperion
 }

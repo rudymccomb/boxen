@@ -24,7 +24,8 @@ class projects::hyperion {
   }
 
   package {'tomcat':
-    require => Exec['downgrade_tomcat']
+    require => Exec['downgrade_tomcat'],
+    ensure => '6.0.26'
   }
 
   file { '/opt/boxen/homebrew/Cellar/tomcat/6.0.26/libexec/conf':

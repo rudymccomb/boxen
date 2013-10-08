@@ -6,7 +6,8 @@ class projects::kinja {
   }
 
   package {'play':
-    require => Exec['downgrade_play']
+    require => Exec['downgrade_play'],
+    ensure => '2.1.5'
   }
 
   package {
