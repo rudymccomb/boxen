@@ -1,17 +1,12 @@
-### Dependencies
+**Install the Xcode Command Line Tools and/or full Xcode.**
 
-**Install the Xcode Command Lines Tools and/or full Xcode.**
-This will grant you the most predictable behavior in building apps like
-MacVim.
+Install Xcode from the Mac App Store.
+```
+xcode-select —install
+```
+It will offer you to install Command Line Tools.
 
-How do you do it?
-
-1. Install Xcode from the Mac App Store.
-1. Open Xcode.
-1. Open the Preferences window (`Cmd-,`).
-1. Go to the Downloads tab.
-1. Install the Command Line Tools.
-
+**Install boxen**
 ```
 curl -s https://raw.github.com/gawkermedia/boxen/master/gawker-boxen > /tmp/boxen; bash /tmp/boxen
 ```
@@ -21,6 +16,7 @@ curl -s https://raw.github.com/gawkermedia/boxen/master/gawker-boxen > /tmp/boxe
 This template project provides the following by default:
 
 * Homebrew
+
 * Git
 * Hub
 * dnsmasq w/ .dev resolver for localhost

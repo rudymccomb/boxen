@@ -2,6 +2,6 @@
 
 sudo mkdir -p /opt/boxen
 sudo chown `logname`:staff /opt/boxen
-git clone https://github.com/gawkermedia/boxen.git /opt/boxen/repo
+git clone git@github.com:gawkermedia/boxen.git /opt/boxen/repo
 cd /opt/boxen/repo
 script/boxen --no-fde
