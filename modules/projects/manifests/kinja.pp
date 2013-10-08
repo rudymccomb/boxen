@@ -18,19 +18,19 @@ class projects::kinja {
 
   repository {
     '/var/www/kinja-mantle':
-      source => 'gawkermedia/kinja-mantle',
+      source => 'git@github.com:gawkermedia/kinja-mantle.git',
       require => File['/var/www']
   }
 
   repository {
     '/var/www/kinja-common':
-      source => 'gawkermedia/kinja-common',
+      source => 'git@github.com:gawkermedia/kinja-common.git',
       require => File['/var/www']
   }
 
   repository {
     '/var/www/kinja-core':
-      source => 'gawkermedia/kinja-core',
+      source => 'git@github.com:gawkermedia/kinja-core.git',
       require => File['/var/www']
   }
 

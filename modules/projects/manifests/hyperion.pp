@@ -1,7 +1,7 @@
 class projects::hyperion {
   repository {
     '/var/www/hyperion':
-      source => 'gawkermedia/hyperion',
+      source => 'git@github.com:gawkermedia/hyperion.git',
       require => File['/var/www']
   }
 
