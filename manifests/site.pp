@@ -158,5 +158,6 @@ node default {
   }
 
   include projects::kinja
+  include projects::kinja-ops
   include projects::hyperion
 }
