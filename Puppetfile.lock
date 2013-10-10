@@ -19,6 +19,11 @@ GITHUBTARBALL
     chrome (1.1.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-cloudapp
+  specs:
+    cloudapp (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-cyberduck
   specs:
     cyberduck (1.0.1)
@@ -26,7 +31,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-daisy_disk
   specs:
-    daisy_disk (1.0.0)
+    daisy_disk (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
@@ -129,6 +134,11 @@ GITHUBTARBALL
     skype (1.0.4)
 
 GITHUBTARBALL
+  remote: boxen/puppet-steam
+  specs:
+    steam (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-sublime_text_2
   specs:
     sublime_text_2 (1.1.2)
@@ -166,12 +176,17 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-vlc
   specs:
-    vlc (1.0.4)
+    vlc (1.0.5)
 
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.1.0)
+
+GITHUBTARBALL
+  remote: felipecvo/puppet-calibre
+  specs:
+    calibre (1.1.0)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -187,14 +202,17 @@ DEPENDENCIES
   adium (= 1.1.1)
   autoconf (= 1.0.0)
   boxen (= 3.0.3)
+  calibre (= 1.1)
   chrome (= 1.1.1)
+  cloudapp (= 1.0.0)
   cyberduck (= 1.0.1)
-  daisy_disk (= 1.0.0)
+  daisy_disk (= 1.0.1)
   dnsmasq (= 1.0.0)
   dropbox (= 1.1.1)
   firefox (= 1.1.3)
   gcc (= 2.0.1)
   git (= 1.3.2)
+  googledrive (= 1.0.2)
   googledrive (= 1.0.2)
   hipchat (= 1.0.8)
   homebrew (= 1.4.1)
@@ -212,6 +230,7 @@ DEPENDENCIES
   ruby (= 6.3.4)
   skype (= 1.0.4)
   stdlib (= 4.1.0)
+  steam (= 1.0.1)
   sublime_text_2 (= 1.1.2)
   sudo (= 1.0.0)
   textmate (= 1.1.0)
@@ -219,6 +238,6 @@ DEPENDENCIES
   transmission (= 1.0.0)
   virtualbox (= 1.0.5)
   viscosity (= 1.0.0)
-  vlc (= 1.0.4)
+  vlc (= 1.0.5)
   xquartz (= 1.1.0)
 
