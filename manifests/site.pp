@@ -78,7 +78,7 @@ node 'default' {
   include ruby::1_9_3
   include ruby::2_0_0
   class { 'ruby::global':
-    version => '1.8.7-p358'
+    version => '1.9.3-p194'
   }
 
   # common, useful packages, default from brew
