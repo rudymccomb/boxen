@@ -8,7 +8,7 @@ It will offer you to install Command Line Tools.
 
 **Install boxen**
 ```
-curl -s https://raw.github.com/gawkermedia/boxen/master/gawker-boxen > /tmp/boxen.sh; bash /tmp/boxen
+curl -s https://raw.github.com/gawkermedia/boxen/master/gawker-boxen > /tmp/boxen.sh; bash /tmp/boxen.sh
 ```
 
 ## What You Get
