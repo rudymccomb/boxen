@@ -53,7 +53,7 @@ class projects::kinja {
     version => '>= 0'
   }
 
-  nodejs::module { 'jslint':
+  nodejs::module { 'jslint@0.1.11':
     node_version => 'v0.10.5'
   }
 }
