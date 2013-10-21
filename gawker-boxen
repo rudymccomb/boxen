@@ -4,6 +4,7 @@ sudo rm -rf /opt/boxen
 sudo rm -rf /tmp/boxen
 sudo mkdir -p /opt/boxen
 sudo chown `logname`:staff /opt/boxen
-git clone git@github.com:gawkermedia/boxen.git /opt/boxen/repo
+git clone https://github.com/gawkermedia/boxen.git /opt/boxen/repo
 cd /opt/boxen/repo
+script/boxen --no-fde
 script/boxen --no-fde
