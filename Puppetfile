@@ -13,7 +13,7 @@ end
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen", "3.0.3"
+github "boxen", "3.0.4"
 
 # Core modules for a basic development environment. You can replace
 # some/most of these if you want, but it's not recommended.
@@ -25,10 +25,10 @@ github "homebrew",   "1.4.1"
 github "hub",        "1.0.3"
 github "inifile",    "1.0.0", :repo => "puppetlabs/puppetlabs-inifile"
 github "nginx",      "1.4.2"
-github "nodejs",     "3.2.10"
+github "nodejs",     "3.3.0"
 github "openssl",    "1.0.0"
 github "repository", "2.2.0"
-github "ruby",       "6.3.4"
+github "ruby",       "6.5.0"
 github "stdlib",     "4.1.0", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",       "1.0.0"
 github "xquartz",    "1.1.0"
@@ -36,7 +36,7 @@ github "xquartz",    "1.1.0"
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
 
-github "adium", "1.1.1"
+github "adium", "1.2.0"
 github "calibre", "1.1", :repo => "felipecvo/puppet-calibre"
 github "chrome", "1.1.1"
 github "cloudapp", "1.0.0"
@@ -45,19 +45,18 @@ github "daisy_disk", "1.0.1"
 github "dropbox", "1.1.1"
 github "firefox", "1.1.3"
 github "googledrive", "1.0.2"
-github "googledrive", "1.0.2"
 github "hipchat", "1.0.8"
 github "iterm2", "1.0.3"
 github "jumpcut", "1.0.0"
 github "mysql", "1.1.5"
 github "onepassword", "1.0.2"
 github "property_list_key", "0.1.0"
-github "skype", "1.0.4"
+github "skype", "1.0.6"
 github "steam", "1.0.1"
 github "sublime_text_2", "1.1.2"
 github "textmate", "1.1.0"
 github "tower", "1.0.0"
 github "transmission", "1.0.0"
-github "virtualbox", "1.0.5"
+github "virtualbox", "1.0.6"
 github "viscosity", "1.0.0"
 github "vlc", "1.0.5"
