@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd
 sudo rm -rf /opt/boxen
 sudo rm -rf /tmp/boxen
 sudo mkdir -p /opt/boxen
