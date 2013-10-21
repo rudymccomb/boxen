@@ -21,7 +21,7 @@ class projects::hyperion {
   # set up tomcat6
   exec { 'downgrade_tomcat':
     command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git checkout 9e18876 tomcat.rb',
-    require => Package['tomcat'],
+    require  => Class['homebrew'],
   }
 
   package {'tomcat':
