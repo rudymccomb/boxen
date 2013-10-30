@@ -58,6 +58,7 @@ node 'default' {
   include hub
   include mysql
   include nginx
+  include redis
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
