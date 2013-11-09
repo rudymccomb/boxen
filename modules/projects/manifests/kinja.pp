@@ -24,6 +24,28 @@ class projects::kinja {
       require => File['/var/www']
   }
 
+  file {
+    ['/var/tmp/kinja-mantle', '/var/tmp/kinja-mantle/buildNumberDummy']:
+      ensure => 'directory',
+      owner => $luser,
+      group => 'staff',
+      mode => 775
+  }
+
+  file {
+    '/var/tmp/kinja-mantle/buildNumberDummy/assets':
+      ensure => link,
+      target => '/var/www/kinja-mantle/target/scala-2.10/classes/public',
+      require => File['/var/tmp/kinja-mantle/buildNumberDummy']
+  }
+
+  file {
+    '/var/tmp/kinja-mantle/buildNumberDummy/closure':
+      ensure => link,
+      target => '/var/www/kinja-mantle/app/views/closure',
+      require => File['/var/tmp/kinja-mantle/buildNumberDummy']
+  }
+
   repository {
     '/var/www/kinja-common':
       source => 'git@github.com:gawkermedia/kinja-common.git',
