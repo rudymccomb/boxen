@@ -1,6 +1,6 @@
 class projects::kinja {
 
-  # set up Play! 2.2.1
+  # set up Play! 2.2.1, then reset play.rb to HEAD
   exec { 'downgrade_play':
     command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git checkout 55d2970 play.rb',
     require  => Class['homebrew'],
@@ -9,6 +9,11 @@ class projects::kinja {
   package {'play':
     require => Exec['downgrade_play'],
     ensure => '2.2.1'
+  }
+
+  exec { 'reset_play_rb':
+    command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git reset play.rb && /usr/bin/git co play.rb',
+    require  => Package['play']
   }
 
   package {

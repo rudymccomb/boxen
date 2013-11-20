@@ -18,7 +18,7 @@ class projects::hyperion {
     ensure => 'present'
   }
 
-  # set up tomcat6
+  # set up tomcat6, then reset tomcat.rb to HEAD
   exec { 'downgrade_tomcat':
     command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git checkout 9e18876 tomcat.rb',
     require  => Class['homebrew'],
@@ -27,6 +27,11 @@ class projects::hyperion {
   package {'tomcat':
     require => Exec['downgrade_tomcat'],
     ensure => '6.0.26'
+  }
+
+  exec { 'reset_tomcat_rb':
+    command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git reset tomcat.rb && /usr/bin/git co tomcat.rb',
+    require  => Package['tomcat']
   }
 
   file { '/opt/boxen/homebrew/Cellar/tomcat/6.0.26/libexec/conf':
