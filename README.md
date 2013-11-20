@@ -2,7 +2,7 @@
 
 Install Xcode from the Mac App Store.
 ```
-xcode-select —install
+xcode-select --install
 ```
 It will offer you to install Command Line Tools.
 
