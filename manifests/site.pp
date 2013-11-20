@@ -102,6 +102,12 @@ node 'default' {
     target => $boxen::config::repodir
   }
 
+  file { "${boxen::config::bindir}/subl":
+    ensure  => link,
+    target  => '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl',
+    mode    => '0755'
+  }
+
   file { '/var/www':
     ensure => 'directory',
     owner => $luser,
@@ -130,34 +136,33 @@ node 'default' {
   include jumpcut
   include onepassword
   include skype
-  include sublime_text_2
   include textmate
   include tower
   include transmission
   include virtualbox
   include viscosity
 
-  sublime_text_2::package { 'Emmet':
-    source => 'sergeche/emmet-sublime'
-  }
+#  sublime_text_2::package { 'Emmet':
+#    source => 'sergeche/emmet-sublime'
+#  }
 
-  sublime_text_2::package { 'Package Control':
-    source => 'wbond/sublime_package_control'
-  }
+#  sublime_text_2::package { 'Package Control':
+#    source => 'wbond/sublime_package_control'
+#  }
 
-  sublime_text_2::package { 'JSLint':
-    source => 'darrenderidder/Sublime-JSLint'
-  }
+#  sublime_text_2::package { 'JSLint':
+#    source => 'darrenderidder/Sublime-JSLint'
+#  }
 
-  sublime_text_2::package { 'DocBlockr':
-    source => 'spadgos/sublime-jsdocs'
-  }
+#  sublime_text_2::package { 'DocBlockr':
+#    source => 'spadgos/sublime-jsdocs'
+#  }
 
-  sublime_text_2::package { 'SoyTemplate':
-    source => 'anvie/SoyTemplate'
-  }
+#  sublime_text_2::package { 'SoyTemplate':
+#    source => 'anvie/SoyTemplate'
+#  }
 
-  file { "/Users/$luser/Library/Application Support/Sublime Text 2/Packages/User/JSLint.sublime-build":
-    source => "$boxen::config::repodir/modules/projects/files/JSLint.sublime-build"
-  }
+#  file { "/Users/$luser/Library/Application Support/Sublime Text 2/Packages/User/JSLint.sublime-build":
+#    source => "$boxen::config::repodir/modules/projects/files/JSLint.sublime-build"
+#  }
 }
