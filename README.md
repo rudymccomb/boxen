@@ -28,6 +28,7 @@ This template project provides the following by default:
 * Ruby 1.8.7
 * Ruby 1.9.2
 * Ruby 1.9.3
+* Ruby 2.0.0
 * ack
 * Findutils
 * GNU tar
@@ -54,7 +55,7 @@ boxen repo (ex. /path/to/your-boxen/Puppetfile):
     github "git",        "1.2.2"
     github "homebrew",   "1.1.2"
     github "hub",        "1.0.0"
-    github "inifile",    "0.9.0", :repo => "cprice-puppet/puppetlabs-inifile"
+    github "inifile",    "0.9.0", :repo => "cprice404/puppetlabs-inifile"
     github "nginx",      "1.4.0"
     github "nodejs",     "2.2.0"
     github "ruby",       "4.1.0"
@@ -168,8 +169,8 @@ It'll just be listed under the boxen org so folks can find it more easily.
 ## Integrating with Github Enterprise
 
 If you're using a Github Enterprise instance rather than github.com,
-you will need to set the "BOXEN_GITHUB_ENTERPRISE_URL" and
-"BOXEN_REPO_URL_TEMPLATE" variables in your
+you will need to set the `BOXEN_GITHUB_ENTERPRISE_URL` and
+`BOXEN_REPO_URL_TEMPLATE` variables in your
 [Boxen config](config/boxen.rb).
 
 ## Halp!
