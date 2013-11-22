@@ -65,23 +65,29 @@ class projects::kinja {
 
   ruby::gem { 'compass':
     gem     => 'compass',
-    ruby    => '1.8.7',
+    ruby    => '1.9.3-p448',
     version => '>= 0'
   }
 
   ruby::gem { 'zurb-foundation':
     gem     => 'zurb-foundation',
-    ruby    => '1.8.7',
+    ruby    => '1.9.3-p448',
     version => '>= 0'
   }
 
   ruby::gem { 'modular-scale':
     gem     => 'modular-scale',
-    ruby    => '1.8.7',
+    ruby    => '1.9.3-p448',
     version => '>= 0'
   }
 
-  nodejs::module { 'jslint@0.1.11':
-    node_version => 'v0.10.5'
+  ruby::gem { 'foundation':
+    gem     => 'foundation',
+    ruby    => '1.9.3-p448',
+    version => '>= 0'
+  }
+
+  nodejs::module { 'bower':
+    node_version => 'v0.10.21'
   }
 }

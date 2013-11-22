@@ -70,7 +70,7 @@ node 'default' {
   include nodejs::v0_8
   include nodejs::v0_10
   class { 'nodejs::global':
-    version => 'v0.10.5'
+    version => 'v0.10.21'
   }
 
   # default ruby versions
@@ -79,7 +79,7 @@ node 'default' {
   include ruby::1_9_3
   include ruby::2_0_0
   class { 'ruby::global':
-    version => '1.8.7-p358'
+    version => '1.9.3-p448'
   }
 
   # common, useful packages, default from brew
