@@ -93,7 +93,8 @@ node 'default' {
       'htop',
       'mc',
       'wget',
-      'pkg-config'
+      'pkg-config',
+      'unrar'
     ]:
   }
 
