@@ -12,7 +12,7 @@ class projects::kinja {
   }
 
   exec { 'reset_play_rb':
-    command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git reset play.rb && /usr/bin/git co play.rb',
+    command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git reset play.rb && /usr/bin/git checkout play.rb',
     require  => Package['play']
   }
 

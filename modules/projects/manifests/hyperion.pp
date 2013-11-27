@@ -30,7 +30,7 @@ class projects::hyperion {
   }
 
   exec { 'reset_tomcat_rb':
-    command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git reset tomcat.rb && /usr/bin/git co tomcat.rb',
+    command => 'cd /opt/boxen/homebrew/Library/Formula && /usr/bin/git reset tomcat.rb && /usr/bin/git checkout tomcat.rb',
     require  => Package['tomcat']
   }
 
